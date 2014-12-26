@@ -7,4 +7,9 @@ RUN dpkg --add-architecture i386 && \
 
 RUN useradd skype -s /bin/bash -m
 
+## Set timezone
+#
+RUN echo "America/New_York" > /etc/timezone && \
+    dpkg-reconfigure -f noninteractive tzdata
+
 CMD sudo skype -c skype
